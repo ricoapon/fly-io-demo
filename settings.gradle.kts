@@ -1,1 +1,1 @@
-rootProject.name = 'fly-io-demo'
+rootProject.name = "fly-io-demo"
