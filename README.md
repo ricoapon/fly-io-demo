@@ -77,10 +77,11 @@ The given database URL by Fly.io is not suitable for our JDBC connection URL. Yo
 like this:
 
 ```
-postgresql://weathered_sky_5211:<random characters>@top2.nearest.of.weathered-sky-5211-db.internal:5432/weathered_sky_5211
+postgres://weathered_sky_5211:<random characters>@top2.nearest.of.weathered-sky-5211-db.internal:5432/weathered_sky_5211
 ```
 
-Transform this URL to look as follows:
+Note that it starts with `postgres` and not `postgresql`! It took my quite some time to see this... Transform this URL
+to look as follows:
 
 ```
 jdbc:postgresql://weathered-sky-5211-db.internal:5432/weathered_sky_5211
@@ -176,7 +177,8 @@ jobs:
           FLY_API_TOKEN: ${{ secrets.FLY_API_TOKEN }}
 ```
 
-This workflow will now deploy your code to Fly.io whenever you change your code on the master branch!
+This workflow will now deploy your code to Fly.io whenever you change your code on the master branch! Note: you might
+not want to deploy that often. Maybe only do this when you are tagging or releasing your application.
 
 ## Step 6: (Optional) Use your own custom domain
 
